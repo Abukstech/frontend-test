@@ -9,6 +9,7 @@ import {
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
 import { ColorSelector } from "./ColorSelector";
+import { cn } from "@/lib/utils";
 
 interface ToolbarSectionProps {
   activeTool: string | null;
@@ -32,14 +33,18 @@ export const ToolbarSection = ({
   ];
 
   return (
-    <aside className="w-16 bg-white border-r flex flex-col items-center py-4">
+    <aside className="w-16 border-r flex flex-col items-center py-4 bg-background">
       <TooltipProvider>
-        <div className="flex flex-col gap-6 items-center">
+        <div className="flex flex-col gap-2 items-center">
           {tools.map((tool) => (
             <Tooltip key={tool.id}>
               <TooltipTrigger asChild>
                 <button
-                  className={`annotation-tool-button ${activeTool === tool.id ? 'active' : ''}`}
+                  className={cn(
+                    "p-2 rounded-md transition-colors hover:bg-accent",
+                    "text-foreground",
+                    activeTool === tool.id && "bg-accent text-accent-foreground"
+                  )}
                   onClick={() => setActiveTool(activeTool === tool.id ? null : tool.id)}
                 >
                   <tool.icon size={20} />

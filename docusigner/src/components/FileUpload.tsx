@@ -34,14 +34,14 @@ export const FileUpload = ({ onFileUpload }: FileUploadProps) => {
     <div className="flex flex-col items-center justify-center h-full">
       <div 
         {...getRootProps()} 
-        className={`dropzone w-full max-w-2xl p-8 border-2 border-dashed rounded-lg transition-colors duration-200 ${isDragActive ? 'border-primary bg-primary/5' : 'border-muted-foreground/30 hover:border-primary/50'}`}
+        className={`flex items-center justify-center w-full max-w-2xl p-8 border-2 border-dashed rounded-lg transition-colors duration-200 ${isDragActive ? 'border-primary bg-primary/5' : 'border-muted-foreground/30 hover:border-primary/50'}`}
       >
         <input {...getInputProps()} />
         <div className="flex flex-col items-center justify-center gap-4">
           <div className="p-4 bg-secondary rounded-full">
             <FileText size={40} className="text-primary" />
           </div>
-          <div className="text-center">
+          <div className="text-center flex flex-col items-center">
             <h3 className="text-lg font-semibold mb-2">Upload your document</h3>
             <p className="text-muted-foreground mb-4">
               Drag and drop your PDF file here, or click to browse
