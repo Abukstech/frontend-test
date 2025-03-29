@@ -121,8 +121,9 @@ export const DocumentViewer = ({ file, activeTool, activeColor }: DocumentViewer
       </div>
       <div 
         ref={containerRef}
-        className="pdf-container relative flex-1 border border-gray-200 rounded-md overflow-hidden"
+        className="pdf-container relative flex-1 border border-gray-200 rounded-md overflow-auto"
         onClick={handleDocumentClick}
+        style={{ minHeight: '600px' }}
       >
         <PDFViewer file={file} />
         

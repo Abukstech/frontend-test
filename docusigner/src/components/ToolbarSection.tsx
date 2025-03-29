@@ -34,7 +34,7 @@ export const ToolbarSection = ({
   return (
     <aside className="w-16 bg-white border-r flex flex-col items-center py-4">
       <TooltipProvider>
-        <div className="flex flex-col gap-2 items-center">
+        <div className="flex flex-col gap-6 items-center">
           {tools.map((tool) => (
             <Tooltip key={tool.id}>
               <TooltipTrigger asChild>

@@ -44,8 +44,22 @@ const Index = () => {
           setActiveColor={setActiveColor}
         />
         
+
+        <main className="flex-1 p-4  w-full">
+          {file ? (
+            <div className="h-full w-full">
+              <DocumentViewer 
+                file={file} 
+                activeTool={activeTool}
+                activeColor={activeColor}
+              />
+            </div>
+          ) : (
+            <FileUpload onFileUpload={handleFileUpload} />
+          )}
+        </main>
         {/* Main content area */}
-        <main className="flex-1 p-4 overflow-hidden">
+        {/* <main className="flex-1 p-4 overflow-hidden">
           {file ? (
             <DocumentViewer 
               file={file} 
@@ -55,7 +69,7 @@ const Index = () => {
           ) : (
             <FileUpload onFileUpload={handleFileUpload} />
           )}
-        </main>
+        </main> */}
       </div>
     </div>
   );

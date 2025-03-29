@@ -34,7 +34,7 @@ export const FileUpload = ({ onFileUpload }: FileUploadProps) => {
     <div className="flex flex-col items-center justify-center h-full">
       <div 
         {...getRootProps()} 
-        className={`dropzone w-full max-w-2xl ${isDragActive ? 'border-primary bg-primary/5' : 'border-muted-foreground/30'}`}
+        className={`dropzone w-full max-w-2xl p-8 border-2 border-dashed rounded-lg transition-colors duration-200 ${isDragActive ? 'border-primary bg-primary/5' : 'border-muted-foreground/30 hover:border-primary/50'}`}
       >
         <input {...getInputProps()} />
         <div className="flex flex-col items-center justify-center gap-4">

@@ -1,33 +1,34 @@
 
-import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+"use client"
+
+import { useTheme } from "next-themes"
+import { Button } from "@/components/ui/button"
+import { Moon, Sun } from "lucide-react"
 
 interface NavbarProps {
-  onExport: () => void;
+  onExport: () => void
 }
 
-export const Navbar = ({ onExport }: NavbarProps) => {
+export function Navbar({ onExport }: NavbarProps) {
+  const { theme, setTheme } = useTheme()
+
   return (
-    <header className="border-b bg-white shadow-sm">
-      <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-2">
-          <h1 className="text-xl font-semibold">DocuDoodle</h1>
-          <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
-            Annotation Tool
-          </span>
-        </div>
-        
-        <div className="flex items-center gap-4">
-          <Button 
-            onClick={onExport} 
-            className="flex items-center gap-2"
-            variant="default"
-          >
-            <Download size={16} />
-            Export PDF
-          </Button>
-        </div>
+    <nav className="border-b px-4 py-3 flex justify-between items-center bg-background">
+      <div className="flex items-center gap-2">
+        <h1 className="text-xl font-semibold">DocuSigner</h1>
       </div>
-    </header>
-  );
-};
+      <div className="flex items-center gap-2">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        >
+          <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <span className="sr-only">Toggle theme</span>
+        </Button>
+        <Button onClick={onExport}>Export</Button>
+      </div>
+    </nav>
+  )
+}
